@@ -35,11 +35,13 @@ function getRandomInt(min, max) {
     displayMathProblemWithDelay(mathProblem, 0);
   }
   
-  function checkAnswer() {
+// Function to check the user's answer
+function checkAnswer() {
     const mathProblem = document.getElementById('math-problem').textContent;
     const userAnswer = document.getElementById('user-answer').value;
     const resultElement = document.getElementById('result');
-    const result = calculateMathProblem(mathProblem); // Call the new function to calculate the result
+    const result = calculateMathProblem(mathProblem);
+  
     if (userAnswer == result) {
       resultElement.textContent = 'Correct!';
       resultElement.style.color = 'green';
@@ -70,13 +72,13 @@ function getRandomInt(min, max) {
     return result;
   }
 
-document.getElementById("user-answer")
-  .addEventListener("keyup", function(event) {
-  event.preventDefault();
-  if (event.keyCode === 13) {
+// Event listener for the "Enter" key press
+document.getElementById("user-answer").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.key === "Enter") {
       document.getElementById("Enter").click();
-  }
-});
+    }
+  });
 
 
   function playNextRound() {
@@ -94,14 +96,14 @@ let points = 0;
 
 // Function to update the points display
 function updatePointsDisplay() {
-  pointsDisplay.textContent = points;
-}
+    pointsDisplay.textContent = `${points}`;
+  }
 
 // Function to handle correct answers
 function handleCorrectAnswer() {
-  points++; // Increment the points
-  updatePointsDisplay(); // Update the points display
-}
+    points++; // Increment the points
+    updatePointsDisplay(); // Update the points display
+  }
 
 // Function to update the points display
 function updatePointsDisplay() {
