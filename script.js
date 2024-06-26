@@ -51,6 +51,7 @@ function checkAnswer() {
       resultElement.textContent = 'Correct!';
       resultElement.style.color = 'green';
       handleCorrectAnswer(); // Call the function to handle correct answers
+      document.getElementById('Enter').disabled = true; // Disable the "Enter" button
     } else {
       resultElement.textContent = 'False...';
       resultElement.style.color = 'red';
@@ -86,10 +87,15 @@ document.getElementById("user-answer").addEventListener("keyup", function(event)
   });
 
 
-  function playNextRound() {
+// Function to play the next round
+function playNextRound() {
     document.getElementById('user-answer').value = '';
     document.getElementById('result').textContent = '';
     displayMathProblem();
+    document.getElementById('Enter').disabled = true; // Disable the "Enter" button
+    setTimeout(() => {
+      document.getElementById('Enter').disabled = false; // Enable the "Enter" button after a delay
+    }, 20); // Adjust the delay time as needed
   }
   
   displayMathProblem();

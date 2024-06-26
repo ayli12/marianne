@@ -17,3 +17,6 @@ body {
     padding: 10px 20px;
   }
 
+  .points-counter {
+    color: blue;
+  }
