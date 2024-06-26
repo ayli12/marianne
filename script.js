@@ -109,3 +109,23 @@ function handleCorrectAnswer() {
 function updatePointsDisplay() {
     pointsDisplay.textContent = `${points}`;
   }
+
+// Function to save the user's points to local storage
+function saveUserPoints(points) {
+    localStorage.setItem('userPoints', points);
+  }
+  
+// Function to retrieve the user's points from local storage
+function getUserPoints() {
+    const points = localStorage.getItem('userPoints');
+    return points ? parseInt(points) : 0;
+}
+
+// Function to initialize the user's points from local storage
+function initializeUserPoints() {
+    points = getUserPoints();
+    updatePointsDisplay(); // Update the points display
+}
+
+// Call the initializeUserPoints function to load the user's points when the app starts
+initializeUserPoints();
