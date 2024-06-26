@@ -99,9 +99,10 @@ function updatePointsDisplay() {
     pointsDisplay.textContent = `${points}`;
   }
 
-// Function to handle correct answers
+// Function to handle correct answers and save the user's points
 function handleCorrectAnswer() {
     points++; // Increment the points
+    saveUserPoints(points); // Save the updated points to localStorage
     updatePointsDisplay(); // Update the points display
   }
 
@@ -110,22 +111,22 @@ function updatePointsDisplay() {
     pointsDisplay.textContent = `${points}`;
   }
 
-// Function to save the user's points to local storage
+// Function to save the user's points to localStorage
 function saveUserPoints(points) {
     localStorage.setItem('userPoints', points);
   }
   
-// Function to retrieve the user's points from local storage
+// Function to retrieve the user's points from localStorage
 function getUserPoints() {
     const points = localStorage.getItem('userPoints');
     return points ? parseInt(points) : 0;
-}
+  }
 
-// Function to initialize the user's points from local storage
+// Function to initialize the user's points from localStorage
 function initializeUserPoints() {
     points = getUserPoints();
     updatePointsDisplay(); // Update the points display
-}
+  }
 
 // Call the initializeUserPoints function to load the user's points when the app starts
 initializeUserPoints();
