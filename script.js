@@ -4,16 +4,21 @@ function getRandomInt(min, max) {
   
   function generateMathProblem() {
     let mathProblem = '';
-    for (let i = 0; i < 5; i++) {
-      mathProblem += getRandomInt(1, 9);
-      if (i < 4) {
-        const operators = ['+', '-', '*', '/'];
-        mathProblem += ` ${operators[getRandomInt(0, 3)]} `;
+    let result;
+    do {
+      mathProblem = '';
+      for (let i = 0; i < 5; i++) {
+        mathProblem += getRandomInt(1, 9);
+        if (i < 4) {
+          const operators = ['+', '-', '*', '/'];
+          mathProblem += ` ${operators[getRandomInt(0, 3)]} `;
+        }
       }
-    }
+      result = calculateMathProblem(mathProblem); // Use the custom function to calculate the result
+    } while (!Number.isInteger(result) || result < 0); // Ensure the result is an integer and positive
     return mathProblem;
   }
-  
+
   function displayMathProblemWithDelay(mathProblem, index) {
     if (index < mathProblem.length) {
       const mathProblemElement = document.getElementById('math-problem');
@@ -52,25 +57,25 @@ function checkAnswer() {
     }
   }
   
-  // New function to calculate the result of the math problem
-  function calculateMathProblem(mathProblem) {
-    const operations = mathProblem.split(' ');
-    let result = parseInt(operations[0]);
-    for (let i = 1; i < operations.length; i += 2) {
-      const operator = operations[i];
-      const operand = parseInt(operations[i + 1]);
-      if (operator === '+') {
-        result += operand;
-      } else if (operator === '-') {
-        result -= operand;
-      } else if (operator === '*') {
-        result *= operand;
-      } else if (operator === '/') {
-        result /= operand;
-      }
+// Function to calculate the result of the math problem
+function calculateMathProblem(mathProblem) {
+  const operations = mathProblem.split(' ');
+  let result = parseInt(operations[0]);
+  for (let i = 1; i < operations.length; i += 2) {
+    const operator = operations[i];
+    const operand = parseInt(operations[i + 1]);
+    if (operator === '+') {
+      result += operand;
+    } else if (operator === '-') {
+      result -= operand;
+    } else if (operator === '*') {
+      result *= operand;
+    } else if (operator === '/') {
+      result /= operand;
     }
-    return result;
   }
+  return result;
+}
 
 // Event listener for the "Enter" key press
 document.getElementById("user-answer").addEventListener("keyup", function(event) {
