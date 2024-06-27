@@ -103,18 +103,39 @@ function playNextRound() {
 
 // Define the points counter element
 const pointsDisplay = document.getElementById('points');
-let points = 0;
+const levelDisplay = document.getElementById('level'); // Add a level display element in your HTML
 
-// Function to update the points display
+let points = 0;
+let level = 1;
+
+// Function to update the points and level display
 function updatePointsDisplay() {
-    pointsDisplay.textContent = `${points}`;
+    pointsDisplay.textContent = `Points: ${points}`;
+    levelDisplay.textContent = `Level: ${level}`;
   }
 
-// Function to handle correct answers and save the user's points
+// Function to update the user's level based on their points
+function updateLevel() {
+    if (points >= 350) {
+      level = 6;
+    } else if (points >= 200) {
+      level = 5;
+    } else if (points >= 100) {
+      level = 4;
+    } else if (points >= 50) {
+      level = 3;
+    } else if (points >= 2) {
+      level = 2;
+    } else {
+      level = 1;
+    }
+    updatePointsDisplay(); // Update the points and level display
+  }
+
+// Function to handle correct answers and update points and level
 function handleCorrectAnswer() {
     points++; // Increment the points
-    saveUserPoints(points); // Save the updated points to localStorage
-    updatePointsDisplay(); // Update the points display
+    updateLevel(); // Update the user's level based on the new points
   }
 
 // Function to update the points display
