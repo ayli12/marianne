@@ -110,7 +110,7 @@ let level = 1;
 
 // Function to update the points and level display
 function updatePointsDisplay() {
-    pointsDisplay.textContent = `Points: ${points}`;
+    pointsDisplay.textContent = `${points}`;
     levelDisplay.textContent = `Level: ${level}`;
   }
 
@@ -124,7 +124,7 @@ function updateLevel() {
       level = 4;
     } else if (points >= 50) {
       level = 3;
-    } else if (points >= 2) {
+    } else if (points >= 20) {
       level = 2;
     } else {
       level = 1;
@@ -136,11 +136,7 @@ function updateLevel() {
 function handleCorrectAnswer() {
     points++; // Increment the points
     updateLevel(); // Update the user's level based on the new points
-  }
-
-// Function to update the points display
-function updatePointsDisplay() {
-    pointsDisplay.textContent = `${points}`;
+    updatePointsDisplay(); // Update the points and level display
   }
 
 // Function to save the user's points to localStorage
@@ -154,10 +150,11 @@ function getUserPoints() {
     return points ? parseInt(points) : 0;
   }
 
-// Function to initialize the user's points from localStorage
+// Function to initialize the user's points and level from localStorage
 function initializeUserPoints() {
     points = getUserPoints();
-    updatePointsDisplay(); // Update the points display
+    updateLevel(); // Update the user's level based on the points
+    updatePointsDisplay(); // Update the points and level display
   }
 
 // Call the initializeUserPoints function to load the user's points when the app starts
