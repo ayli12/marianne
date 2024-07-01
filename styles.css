@@ -20,3 +20,7 @@ body {
   .points-counter {
     color: blue;
   }
+
+  .popup-container {
+    display: none;
+  }

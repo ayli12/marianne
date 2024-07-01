@@ -122,14 +122,15 @@ function updateLevel() {
       level = 5;
     } else if (points >= 100) {
       level = 4;
-    } else if (points >= 50) {
+    } else if (points >= 18) {
       level = 3;
-    } else if (points >= 20) {
+    } else if (points >= 17) {
       level = 2;
     } else {
       level = 1;
     }
     updatePointsDisplay(); // Update the points and level display
+    displayLevelUpPopup(level);
   }
 
 // Function to handle correct answers and update points and level
@@ -159,3 +160,30 @@ function initializeUserPoints() {
 
 // Call the initializeUserPoints function to load the user's points when the app starts
 initializeUserPoints();
+
+// Function to display the level-up pop-up based on the level
+function displayLevelUpPopup(level) {
+    console.log(`Displaying pop-up for Level ${level}`);
+    const popup = document.getElementById('levelPopup');
+    const popupContent = document.getElementById('popupContent');
+    const popupCloseButton = document.getElementById('popupCloseButton');
+    
+    popupContent.innerHTML = `Congratulations! You have reached Level ${level}!`; // Add text and images as needed
+    
+    popup.style.display = 'block'; // Show the pop-up
+
+    // Event handling for the close button to hide the pop-up
+    popupCloseButton.addEventListener('click', function() {
+        popup.style.display = 'none'; // Hide the pop-up
+        // Add any additional logic to return to the game
+    });
+}
+
+
+
+// Example: Call the function to display the pop-up for Level 1
+displayLevelUpPopup(1);
+// Example: Call the function to display the pop-up for Level 2
+displayLevelUpPopup(2);
+// Example: Call the function to display the pop-up for Level 3
+displayLevelUpPopup(3);
