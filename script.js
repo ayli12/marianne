@@ -114,23 +114,28 @@ function updatePointsDisplay() {
     levelDisplay.textContent = `Level: ${level}`;
   }
 
+let previousLevel = 1;
+
 // Function to update the user's level based on their points
 function updateLevel() {
+    let newLevel = 1;
     if (points >= 350) {
-      level = 6;
+      newLevel = 6;
     } else if (points >= 200) {
-      level = 5;
+      newLevel = 5;
     } else if (points >= 100) {
-      level = 4;
-    } else if (points >= 20) {
-      level = 3;
-    } else if (points >= 5) {
-      level = 2;
-    } else {
-      level = 1;
+      newLevel = 4;
+    } else if (points >= 23) {
+      newLevel = 3;
+    } else if (points >= 21) {
+      newLevel = 2;
+    }
+    
+    if (newLevel > level) {
+      level = newLevel;
+      displayLevelUpPopup(level); // Call the function to display the pop-up for the new level
     }
     updatePointsDisplay(); // Update the points and level display
-    displayLevelUpPopup(level);
   }
 
 // Function to handle correct answers and update points and level
@@ -163,27 +168,35 @@ initializeUserPoints();
 
 // Function to display the level-up pop-up based on the level
 function displayLevelUpPopup(level) {
-    console.log(`Displaying pop-up for Level ${level}`);
     const popup = document.getElementById('levelPopup');
+    const popupTitle = document.getElementById('popupTitle');
     const popupContent = document.getElementById('popupContent');
+    const popupImage = document.getElementById('popupImage');
     const popupCloseButton = document.getElementById('popupCloseButton');
-    
-    popupContent.innerHTML = `Congratulations! You have reached Level ${level}!`; // Add text and images as needed
-    
+  
+    popupTitle.textContent = `Level ${level}`; // Set the title of the pop-up
+  
+    // Hide all level-specific content elements
+    const allLevelContents = document.getElementsByClassName('level-popup-content');
+    for (let content of allLevelContents) {
+      content.style.display = 'none';
+    }
+  
+    // Show the content specific to the current level
+    const levelContent = document.getElementById(`level${level}Content`);
+    levelContent.style.display = 'block';
+  
+    // Set the image for the pop-up
+    popupImage.src = levelContent.querySelector('img').src;
+  
     popup.style.display = 'block'; // Show the pop-up
-
+  
     // Event handling for the close button to hide the pop-up
     popupCloseButton.addEventListener('click', function() {
-        popup.style.display = 'none'; // Hide the pop-up
-        // Add any additional logic to return to the game
+      popup.style.display = 'none'; // Hide the pop-up
+      // Add any additional logic to return to the game
     });
-}
+  }
 
-
-
-// Example: Call the function to display the pop-up for Level 1
-displayLevelUpPopup(1);
-// Example: Call the function to display the pop-up for Level 2
-displayLevelUpPopup(2);
-// Example: Call the function to display the pop-up for Level 3
-displayLevelUpPopup(3);
+// Call the initializeUserPoints function to load the user's points when the app starts
+initializeUserPoints();
