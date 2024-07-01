@@ -122,9 +122,9 @@ function updateLevel() {
       level = 5;
     } else if (points >= 100) {
       level = 4;
-    } else if (points >= 18) {
+    } else if (points >= 20) {
       level = 3;
-    } else if (points >= 17) {
+    } else if (points >= 5) {
       level = 2;
     } else {
       level = 1;
