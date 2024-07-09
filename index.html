@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Matherhorn</title>
+  <link rel="icon" type="image" href="assets/images/matterhorn_icon.jpg">
+</head>
+
+<body>
+  <div class="game-container">
+    <div class="points-counter">
+        <span>Points: </span><span id="points">0</span>
+        <span>Level: </span><span id="level">0</span>
+    </div>
+    <div id="math-problem"></div>
+    <input type="text" id="user-answer" placeholder="Enter your answer" inputmode="numeric">
+    <button id="Enter" onclick="checkAnswer()">Enter</button>
+    <div id="result"></div>
+    <button id="Next-Round" onclick="playNextRound()">Next Round</button>
+  </div>
+  <script src="script.js"></script>
+
+</body>
+</html>
