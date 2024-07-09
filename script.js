@@ -136,11 +136,11 @@ function handleCorrectAnswer() {
       updateLevel(5);
     } else if (points >= 50) {
       updateLevel(4);
-    } else if (points >= 20) {
+    } else if (points >= 24) {
       updateLevel(3);
-    } else if (points >= 10) {
+    } else if (points >= 22) {
       updateLevel(2);
-    } else if (points >= 7) {
+    } else if (points >= 20) {
       updateLevel(1);
     }
   
@@ -151,7 +151,13 @@ function handleCorrectAnswer() {
   
   // Function to update the user's level
   function updateLevel(level) {
+    const currentLevel = parseInt(document.getElementById('level').textContent);
     document.getElementById('level').textContent = level;
+  
+    if (level > currentLevel) {
+      // Call the function to display the level-specific popup with the corresponding image path
+      displayLevelPopup(level, imagePath); //////
+    }
   }
   
 // Function to load user's points and level from local storage
@@ -170,5 +176,48 @@ function loadUserProgress() {
   window.onload = loadUserProgress;
 
 
+///////////
 
+// Define level-specific messages
+const levelMessages = {
+    1: "Du hast die Blüemlisalp erklommen!",
+    2: "Du hast Le Rubli erklommen!",
+    3: "Du hast den Finsteraarhorn erklommen!",
+    4: "Du hast den Pizzo Tambo erklommen!",
+    5: "Du hast die Parrotspitze erklommen!",
+    6: "Du hast das Faulhorn erklommen!"
+  };
+
+const imagePath = {
+    1:"assets/images/level_1.jpg",
+    2:"assets/images/level_1.jpg"
+}
+  
+  // Function to display level-specific popup with text and image
+  function displayLevelPopup(level, imagePath) {
+    const message = levelMessages[level];
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+  
+    const content = document.createElement('div');
+    content.classList.add('popup-content');
+  
+    const text = document.createElement('p');
+    text.textContent = message;
+    content.appendChild(text);
+  
+    const image = document.createElement('img');
+    image.src = imagePath[level]; // Use the provided image path for the specific level
+    content.appendChild(image);
+  
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.addEventListener('click', () => {
+      popup.remove(); // Close the popup when the user clicks the close button
+    });
+    content.appendChild(closeButton);
+  
+    popup.appendChild(content);
+    document.body.appendChild(popup);
+  }
 
