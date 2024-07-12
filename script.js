@@ -140,7 +140,7 @@ function handleCorrectAnswer() {
       updateLevel(3);
     } else if (points >= 22) {
       updateLevel(2);
-    } else if (points >= 20) {
+    } else if (points >= 2) {
       updateLevel(1);
     }
   
@@ -185,7 +185,8 @@ const levelMessages = {
     3: "Du hast den Finsteraarhorn erklommen!",
     4: "Du hast den Pizzo Tambo erklommen!",
     5: "Du hast die Parrotspitze erklommen!",
-    6: "Du hast das Faulhorn erklommen!"
+    6: "Du hast das Faulhorn erklommen!",
+    7: "Du hast die Hundwiler Höhi erklommen!"
   };
 
 const imagePath = {
@@ -211,7 +212,7 @@ const imagePath = {
     content.appendChild(image);
   
     const closeButton = document.createElement('button');
-    closeButton.textContent = 'Close';
+    closeButton.textContent = 'Schliessen';
     closeButton.addEventListener('click', () => {
       popup.remove(); // Close the popup when the user clicks the close button
     });
@@ -221,3 +222,35 @@ const imagePath = {
     document.body.appendChild(popup);
   }
 
+// Function to display the popup when the page loads
+function displayPopupOnLoad() {
+  const message = "Welcome to Matherhorn! Get ready to climb the math peaks!";
+  const imagePath = "assets/images/welcome_image.jpg"; // Replace with the path to the welcome image
+
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+
+  const content = document.createElement('div');
+  content.classList.add('popup-content');
+
+  const text = document.createElement('p');
+  text.textContent = message;
+  content.appendChild(text);
+
+  const image = document.createElement('img');
+  image.src = imagePath; // Use the provided image path for the welcome image
+  content.appendChild(image);
+
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.addEventListener('click', () => {
+    popup.remove(); // Close the popup when the user clicks the close button
+  });
+  content.appendChild(closeButton);
+
+  popup.appendChild(content);
+  document.body.appendChild(popup);
+}
+
+// Call the function to display the popup when the page loads
+window.onload = displayPopupOnLoad;

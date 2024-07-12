@@ -31,3 +31,56 @@ body {
     max-width: 100%;
     display: block; /* Ensures the image does not have any extra spacing around it */
   }
+
+  html {
+    background-color: rgb(222, 236, 240);
+  }
+
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #333;
+    padding: 20px;
+    max-width: 80%;
+    text-align: center;
+  }
+  
+  .popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .popup img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .popup button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+/* Default background image for larger screens */
+html {
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media (max-width: 767px) {
+  html {
+    background-image: url('assets/images/mobile_background.png');
+    background-size:cover;
+    background-position: fixed;
+  }
+}
+
