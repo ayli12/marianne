@@ -38,22 +38,28 @@ body {
 
   .popup {
     position: fixed;
+    width: 75%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    border: 2px solid #333;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #fefdfd6c;
+    padding: 10px;
     max-width: 80%;
+    max-width: 600px; /* Optionally, set a maximum width for the popup */
     text-align: center;
+    border-radius: 20px;
+    margin: 15% 0 auto; 
   }
+
   
   .popup-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 11px;
   }
-  
+
   .popup img {
     max-width: 100%;
     height: auto;
@@ -62,11 +68,13 @@ body {
   
   .popup button {
     margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #333;
+    padding: 8px 10px;
+    background-color: rgb(72, 88, 225);
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 11px;
+    border-radius: 5px;
   }
 
 /* Default background image for larger screens */
@@ -84,3 +92,19 @@ html {
   }
 }
 
+
+.game-container {
+  position: fixed;
+  width: 75%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #fefdfd6c;
+  padding: 10px;
+  max-width: 80%;
+  max-width: 600px; /* Optionally, set a maximum width for the popup */
+  text-align: center;
+  border-radius: 20px;
+  margin: 15% 0 auto; 
+}
