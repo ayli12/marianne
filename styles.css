@@ -14,7 +14,14 @@ body {
   }
 
   .points-counter {
-    color: rgb(200, 0, 255);
+    color: rgb(5, 30, 250);
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+
+  #points {
+    margin-right: 30px;
   }
 
   .banner {
@@ -33,7 +40,7 @@ body {
   }
 
   .popup {
-    position: fixed;
+    position: absolute;
     width: 75%;
     top: 50%;
     left: 50%;
@@ -46,10 +53,11 @@ body {
     text-align: center;
     border-radius: 20px;
     margin: 20% 0 auto;
+    z-index: 1;
   }
 
   .game-container {
-    position: fixed;
+    position: absolute;
     width: 75%;
     top: 50%;
     left: 50%;
@@ -66,7 +74,7 @@ body {
     margin-top: 10px;
   }
 
-  
+    
   .popup-content {
     display: flex;
     flex-direction: column;
@@ -83,7 +91,7 @@ body {
   .popup button {
     margin-top: 10px;
     padding: 8px 10px;
-    background-color: rgb(72, 88, 225);
+    background-color: rgb(67, 85, 241);
     color: white;
     border: none;
     cursor: pointer;
@@ -100,7 +108,7 @@ html {
 /* Media query for smaller screens (e.g., mobile devices) */
 @media (max-width: 767px) {
   html {
-    background-image: url('assets/images/mobile_background.png');
+    background-image: url('assets/images/mobile_background_2.png');
     background-size:cover;
     background-position: fixed;
   }

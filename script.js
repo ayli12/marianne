@@ -224,8 +224,8 @@ const imagePath = {
 
 // Function to display the popup when the page loads
 function displayPopupOnLoad() {
-  const message = "Liebe Marianne, <br><br>Welcome to Matherhorn – deine eigene Rechenapp 🤓 <br><br> Es funktioniert wie folgt: Für jede richtig beantwortete Rechenfrage bekommst du einen Punkt (woohoo!) Nach einigen gesammelten Punkten erreichst du jeweils einen Schweizer Berggipfel wo ein Gschenkli auf dich wartet. <br><br>Viel Spass beim Spielen und Gipfel stürmen! <br><br>Ich liebe dich 💙 <br><br>P.S. Rechnen musst du sequenziell – Punkt vor Strich zählt hier nicht";
-  //const imagePath = "assets/images/logo.jpg"; // Replace with the path to the welcome image
+  const message = "Liebe Marianne, <br><br>Das ist  Matherhorn – deine eigene Rechenapp 🤓 <br><br> Es funktioniert wie folgt: Für jede richtig beantwortete Rechenfrage bekommst du einen Punkt (woohoo!) Nach einigen gesammelten Punkten erreichst du jeweils einen Schweizer Berggipfel wo ein Gschenkli auf dich wartet. <br><br>Viel Spass beim Spielen und Gipfel stürmen! <br><br>Ich liebe dich 💙 <br><br>P.S. Rechnen musst du sequenziell – Punkt vor Strich zählt hier nicht";
+  /////const imagePath = "assets/images/logo.jpg"; // Replace with the path to the welcome image
 
   const popup = document.createElement('div');
   popup.classList.add('popup');
@@ -238,7 +238,7 @@ function displayPopupOnLoad() {
   content.appendChild(text);
 
   const image = document.createElement('img');
-  //image.src = imagePath; // Use the provided image path for the welcome image
+  ///image.src = imagePath; // Use the provided image path for the welcome image
   image.style.width = "50px"; // Set the width of the image
   image.style.height = "auto"; // Maintain the aspect ratio
   content.appendChild(image);
@@ -252,7 +252,20 @@ function displayPopupOnLoad() {
 
   popup.appendChild(content);
   document.body.appendChild(popup);
+  loadUserProgress();
 }
 
 // Call the function to display the popup when the page loads
 window.onload = displayPopupOnLoad;
+
+// Function to prevent scrolling when the user clicks inside the answer field on a mobile device
+function preventScrollOnMobile() {
+  const answerField = document.getElementById('user-answer');
+
+  answerField.addEventListener('touchmove', function(event) {
+    event.preventDefault(); // Prevent the default scrolling behavior
+  });
+}
+
+// Call the function to prevent scrolling when the user clicks inside the answer field on a mobile device
+preventScrollOnMobile();
