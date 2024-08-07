@@ -42,7 +42,7 @@ body {
   .popup {
     position: absolute;
     width: 75%;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
@@ -74,7 +74,8 @@ body {
     margin-top: 10px;
   }
 
-    
+
+  
   .popup-content {
     display: flex;
     flex-direction: column;
