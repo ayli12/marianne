@@ -130,17 +130,17 @@ function handleCorrectAnswer() {
     document.getElementById('points').textContent = points;
   
     // Check for level changes
-    if (points >= 12500) {
+    if (points >= 125000) {
       updateLevel(6);
-    } else if (points >= 7500) {
+    } else if (points >= 75000) {
       updateLevel(5);
-    } else if (points >= 5000) {
+    } else if (points >= 50000) {
       updateLevel(4);
-    } else if (points >= 2400) {
+    } else if (points >= 24000) {
       updateLevel(3);
-    } else if (points >= 2200) {
+    } else if (points >= 22000) {
       updateLevel(2);
-    } else if (points >= 200) {
+    } else if (points >= 20000) {
       updateLevel(1);
     }
   
