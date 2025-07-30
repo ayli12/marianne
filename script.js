@@ -130,17 +130,17 @@ function handleCorrectAnswer() {
     document.getElementById('points').textContent = points;
   
     // Check for level changes
-    if (points >= 125000) {
+    if (points >= 15550) {
       updateLevel(6);
-    } else if (points >= 75000) {
+    } else if (points >= 60) {
       updateLevel(5);
-    } else if (points >= 50000) {
+    } else if (points >= 40) {
       updateLevel(4);
-    } else if (points >= 24000) {
+    } else if (points >= 20) {
       updateLevel(3);
-    } else if (points >= 22000) {
+    } else if (points >= 10) {
       updateLevel(2);
-    } else if (points >= 20000) {
+    } else if (points >= 2) {
       updateLevel(1);
     }
   
@@ -180,18 +180,17 @@ function loadUserProgress() {
 
 // Define level-specific messages
 const levelMessages = {
-    1: "Du hast die Blüemlisalp erklommen!",
-    2: "Du hast Le Rubli erklommen!",
-    3: "Du hast den Finsteraarhorn erklommen!",
-    4: "Du hast den Pizzo Tambo erklommen!",
-    5: "Du hast die Parrotspitze erklommen!",
-    6: "Du hast das Faulhorn erklommen!",
-    7: "Du hast die Hundwiler Höhi erklommen!"
+    1: "Du hast die Blüemlisalp erklommen! 💐",
+    2: "Du hast das Lauteraarhorn erklommen! 🎺",
+    3: "Du hast das Finsteraarhorn erklommen! 🐮",
+    4: "Du hast das Faulhorn erklommen! 👙",
+    5: "Du hast das Gross Fiescherhorn erklommen! 🐒",
+    6: "-",
+    7: "-"
   };
 
 const imagePath = {
-    1:"assets/images/level_1.jpg",
-    2:"assets/images/level_1.jpg"
+    
 }
   
   // Function to display level-specific popup with text and image
