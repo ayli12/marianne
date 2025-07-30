@@ -206,10 +206,6 @@ const imagePath = {
     text.textContent = message;
     content.appendChild(text);
   
-    const image = document.createElement('img');
-    image.src = imagePath[level]; // Use the provided image path for the specific level
-    content.appendChild(image);
-  
     const closeButton = document.createElement('button');
     closeButton.textContent = 'Schliessen';
     closeButton.addEventListener('click', () => {
